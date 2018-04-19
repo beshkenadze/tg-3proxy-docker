@@ -1,0 +1,12 @@
+version: '3'
+services:
+  threeproxy:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:        
+      - USER=telegram
+      - DNS1=1.1.1.1                
+      - DNS2=8.8.8.8  
+    ports:
+      - 3128:3128

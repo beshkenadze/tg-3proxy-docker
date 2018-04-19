@@ -1,0 +1,38 @@
+# Позволяем установить NS сервера
+nserver __DNS1__
+nserver __DNS2__
+# Оставим размер кэша для запросов DNS по умолчанию
+nscache 65536
+# Равно как и таймауты
+timeouts 1 5 30 60 180 1800 15 60
+
+# IP адреса
+#internal 172.221.163.146
+#external 172.221.163.146
+
+# Путь к логам и формат лога, к имени лога будет добавляться дата создания
+log /usr/local/etc/3proxy/logs/3proxy.log D
+logformat "- +_L%t.%. %N.%p %E %U %C:%c %R:%r %O %I %h %T"
+rotate 30
+
+# Создаем пользователей и назначаем им пароли
+# TODO: вынести в отдельный файл
+users __USER__:CL:__PASSWORD__
+
+# Конфигурация SOCKS5-proxy
+flush
+auth strong
+maxconn 32
+# Разрешаем только TG трафик, ибо нефиг
+allow * * 91.108.4.0/22,91.108.8.0/22,91.108.12.0/22,91.108.16.0/22,91.108.56.0/22,149.154.160.0/22,149.154.164.0/22,,149.154.167.0/22,149.154.168.0/22,149.154.170.0/22 * * *
+#allow * * telegram.org,web.telegram.org,telegram.me,desktop.telegram.org,telegram.dog,venus.web.telegram.org,pluto-1.web.telegram.org * * *
+
+# Остальное запрещаем
+deny *
+# запустим socks5 прокси
+socks -p__PORT__
+
+# Запускаем сервер от пользователя nobody
+# (возможно в вашей ОС uid и gid пользователя nobody будут другими, для их определения воспользуйтесь командой id nobody)
+#setgid __NOBODY_GROUP__
+#setuid __NOBODY_USER__
