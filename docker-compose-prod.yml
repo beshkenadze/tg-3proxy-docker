@@ -2,7 +2,7 @@ version: '3'
 services:
  watchtower:
     image: v2tec/watchtower
-    container_name: "caesarapp-watchtower"
+    container_name: "tg-3proxy-watchtower"
     command: --cleanup --label-enable --interval 30 --debug
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
