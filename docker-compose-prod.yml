@@ -10,7 +10,7 @@ services:
    image: beshkenadze/tg-3proxy-docker
    environment:
      - USER=telegram
-     - SERVER=drpt.me
+     - SERVER=yourserver.me
    ports:
      - 3128:3128
    labels:
