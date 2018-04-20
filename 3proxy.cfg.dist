@@ -7,8 +7,8 @@ nscache 65536
 timeouts 1 5 30 60 180 1800 15 60
 
 # IP адреса
-#internal 172.221.163.146
-#external 172.221.163.146
+#internal 0.0.0.0
+#external 0.0.0.0
 
 # Путь к логам и формат лога, к имени лога будет добавляться дата создания
 log /usr/local/etc/3proxy/logs/3proxy.log D
