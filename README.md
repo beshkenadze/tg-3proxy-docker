@@ -17,3 +17,5 @@ bash-4.4$ docker-compose -f docker-compose-prod.yml up -d
 * In the log, will show the link that you want to open
 
 ```bash-4.4$ docker logs tg_3proxy```
+
+![Example](https://raw.githubusercontent.com/beshkenadze/tg-3proxy-docker/master/example.png)
