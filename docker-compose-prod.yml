@@ -7,7 +7,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   threeproxy:
-    image: beshkenadze/3proxy
+    image: beshkenadze/tg-3proxy-docker
     environment:
       - USER=telegram
       - SERVER=drpt.me
