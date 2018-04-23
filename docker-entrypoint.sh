@@ -6,6 +6,9 @@ export NOBODY_USER=$(id -g nobody)
 if [ -z "$PASSWORD" ] || [ "$PASSWORD" == "password" ] ; then
     export PASSWORD="$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')"
 fi
+if [ -z "$SERVER" ] || [ "$SERVER" == "127.0.0.1" ] ; then
+    export SERVER="$(dig +short myip.opendns.com @resolver1.opendns.com)"
+fi
 
 if [ "$1" = "start_proxy" ]; then
     cp 3proxy.cfg.dist 3proxy.cfg

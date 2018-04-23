@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     environment:        
       - USER=telegram
+      - PASSWORD=testpassword
       - DNS1=1.1.1.1                
       - DNS2=8.8.8.8  
     ports:

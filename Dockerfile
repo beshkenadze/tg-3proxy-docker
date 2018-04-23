@@ -1,7 +1,7 @@
 FROM alpine
 
 # Install base packages
-RUN apk update && apk add git build-base linux-headers
+RUN apk update && apk add git build-base linux-headers bind-tools
 
 # Download 3proxy 0.8.8 
 RUN mkdir -p /usr/src
