@@ -2,16 +2,16 @@ version: '3'
 services:
  watchtower:
     image: v2tec/watchtower
-    container_name: "caesarapp-watchtower"
+    container_name: "tg-3proxy-watchtower"
     command: --cleanup --label-enable --interval 30 --debug
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-  threeproxy:
-    image: beshkenadze/tg-3proxy-docker
-    environment:
-      - USER=telegram
-      - SERVER=drpt.me
-    ports:
-      - 3128:3128
-    labels:
-      - com.centurylinklabs.watchtower.enable=true    
+ threeproxy:
+   image: beshkenadze/tg-3proxy-docker
+   environment:
+     - USER=telegram
+     - SERVER=yourserver.me
+   ports:
+     - 3128:3128
+   labels:
+     - com.centurylinklabs.watchtower.enable=true    
