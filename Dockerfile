@@ -3,7 +3,7 @@
 # Compilation image stage
 ############################
 
-FROM alpine:latest
+FROM alpine:latest as build
 
 # Install base packages
 RUN apk update && apk add git build-base linux-headers bind-tools
@@ -35,7 +35,7 @@ ENV DNS2=8.8.8.8
 
 # Install  and setup 3proxy files
 
-COPY --from=0 /usr/local/bin/ /usr/local/bin/
+COPY --from=build /usr/local/bin/3proxy /usr/local/bin/3proxy
 
 RUN mkdir -p /usr/local/etc/3proxy/logs && apk update && apk add bind-tools
 WORKDIR /usr/local/etc/3proxy/
